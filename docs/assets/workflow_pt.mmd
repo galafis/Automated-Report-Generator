@@ -1,0 +1,23 @@
+graph TD
+    A[Iniciar Aplicação] --> B(Carregar Configuração)
+    B --> C{Conectar ao Banco de Dados}
+    C --> D[Gerar Dados de Exemplo]
+    D --> E[Realizar Análise de Vendas]
+    E --> F[Criar Visualizações]
+    F --> G[Criar Dashboard Interativo]
+    G --> H[Gerar Relatório PDF]
+    H --> I{Enviar Relatório por E-mail?}
+    I -- Sim --> J[Enviar E-mail com PDF]
+    I -- Não --> K[Finalizar Geração de Relatório]
+    J --> K
+    K --> L[Servir Interface Web]
+    L --> M[Interação do Usuário via app.js]
+    M --> N{Endpoints da API}
+    N -- /api/process --> O[Processar Dados]
+    N -- /api/analytics --> P[Obter Resultados de Análise]
+    N -- /api/upload --> Q[Upload de Arquivo]
+    N -- /api/status --> R[Obter Status do Sistema]
+    O --> L
+    P --> L
+    Q --> L
+    R --> L

@@ -6,3 +6,34 @@ __pycache__/
 .DS_Store
 dist/
 build/
+
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# R
+.Rproj.user/
+.Rhistory
+.Rdata
+.Ruserdata
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Reports and generated files
+reports/
+*.pdf
+*.html
+*.png
+
+# Config files
+config.json
+

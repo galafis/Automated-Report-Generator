@@ -1,0 +1,23 @@
+graph TD
+    A[Start Application] --> B(Load Configuration)
+    B --> C{Connect to Database}
+    C --> D[Generate Sample Data]
+    D --> E[Perform Sales Analysis]
+    E --> F[Create Visualizations]
+    F --> G[Create Interactive Dashboard]
+    G --> H[Generate PDF Report]
+    H --> I{Email Report?}
+    I -- Yes --> J[Send Email with PDF]
+    I -- No --> K[End Report Generation]
+    J --> K
+    K --> L[Serve Web Interface]
+    L --> M[User Interaction via app.js]
+    M --> N{API Endpoints}
+    N -- /api/process --> O[Process Data]
+    N -- /api/analytics --> P[Get Analytics Results]
+    N -- /api/upload --> Q[Upload File]
+    N -- /api/status --> R[Get System Status]
+    O --> L
+    P --> L
+    Q --> L
+    R --> L
