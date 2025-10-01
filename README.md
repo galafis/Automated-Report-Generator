@@ -14,7 +14,6 @@
 
 ![Hero Image](docs/assets/new_hero_images/new_hero_image.png)
 
-![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
 
 
 Advanced Automated-Report-Generator with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
