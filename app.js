@@ -35,7 +35,13 @@ class ApplicationManager {
 
     setupEventListeners() {
         // Modern event handling
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener("DOMContentLoaded", () => {
+            const fetchDataButton = document.getElementById("fetch-data-btn");
+            if (fetchDataButton) {
+                fetchDataButton.addEventListener("click", () => {
+                    this.fetchBackendData();
+                });
+            }
             this.enhanceUI();
         });
 
@@ -160,6 +166,20 @@ class ApplicationManager {
     setData(key, value) {
         this.data.set(key, value);
         return this;
+    }
+
+    async fetchBackendData() {
+        try {
+            const response = await fetch("/api/analytics");
+            const data = await response.json();
+            console.log("Backend response:", data);
+            this.showNotification("Dados do backend carregados: " + JSON.stringify(data));
+            return data;
+        } catch (error) {
+            console.error("Erro ao buscar dados do backend:", error);
+            this.showNotification("Erro ao buscar dados do backend.");
+            return null;
+        }
     }
 
     async processData(data) {

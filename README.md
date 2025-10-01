@@ -3,6 +3,9 @@
 ## English
 
 ### Overview
+
+[View GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
+
 Advanced Automated-Report-Generator with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
 
 ### Author
@@ -74,17 +77,18 @@ python app.py
    - Open `index.html` in your browser for the frontend interface
    - Interactive dashboard with real-time functionality
    - Responsive design works on desktop and mobile devices
+   - Click the "Buscar Dados do Backend" button to fetch sample data.
 
 3. **Run Analytics**
    ```r
    # Load R analytics
-   source('analytics.R')
+   source(\'analytics.R\')
    
    # Create analyzer instance
    analyzer <- DataAnalyzer$new()
    
    # Load and analyze data
-   analyzer$load_data('data.csv')
+   analyzer$load_data(\'data.csv\')
    analyzer$analyze()
    analyzer$generate_report()
    ```
@@ -143,6 +147,9 @@ ANALYTICS_CONFIG = {
 ## Português
 
 ### Visão Geral
+
+[Ver GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
+
 Automated-Report-Generator avançado com funcionalidade abrangente e stack de tecnologia moderna. Apresenta múltiplas linguagens de programação, interfaces web interativas e capacidades de análise avançadas para soluções de nível profissional.
 
 ### Autor
@@ -216,22 +223,7 @@ Contribuições são bem-vindas! Por favor, abra uma issue ou envie um pull requ
 ### Contato
 Para dúvidas ou suporte, entre em contato através do email ou LinkedIn mencionados acima.
 
+### Governança
+- [Código de Conduta](CODE_OF_CONDUCT.md)
+- [Diretrizes de Contribuição](CONTRIBUTING.md)
 
-## 📋 Descrição
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 📦 Instalação
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 💻 Uso
-
-Descreva aqui o conteúdo desta seção.
-
-
-## 📄 Licença
-
-Descreva aqui o conteúdo desta seção.
