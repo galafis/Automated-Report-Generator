@@ -107,6 +107,17 @@ Automated-Report-Generator/
 └── data/             # Data files and samples
 ```
 
+
+### Workflow
+
+```mermaid
+graph TD
+    A[Start] --> B{Process Data?}
+    B -- Yes --> C[Generate Report]
+    B -- No --> D[End]
+    C --> D
+```
+
 ### API Endpoints
 
 ```python
@@ -193,6 +204,16 @@ Rscript -e "install.packages(c('ggplot2', 'dplyr', 'corrplot', 'plotly'))"
 
 # Executar a aplicação
 python app.py
+```
+
+### Fluxo de Trabalho
+
+```mermaid
+graph TD
+    A[Início] --> B{Processar Dados?}
+    B -- Sim --> C[Gerar Relatório]
+    B -- Não --> D[Fim]
+    C --> D
 ```
 
 ### Uso da Interface Web
