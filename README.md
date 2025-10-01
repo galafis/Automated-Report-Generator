@@ -12,7 +12,10 @@
 
 [View GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
 
-![Hero Image](docs/assets/hero_image.jpg)
+![Hero Image](docs/assets/new_hero_images/new_hero_image.png)
+
+![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
+
 
 Advanced Automated-Report-Generator with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
 
@@ -174,7 +177,8 @@ The `config.json` file, located in the `config/` directory, allows customization
 
 [Ver GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
 
-![Imagem Hero](docs/assets/hero_image.jpg)
+![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
+
 
 Gerador de Relatórios Automatizado avançado com funcionalidade abrangente e um conjunto de tecnologias modernas. Apresenta múltiplas linguagens de programação, interfaces web interativas e capacidades de análise avançadas para soluções de nível profissional.
 
