@@ -1,10 +1,10 @@
-
 # Automated-Report-Generator
 
 ![GitHub last commit](https://img.shields.io/github/last-commit/galafis/Automated-Report-Generator?style=for-the-badge)
 ![GitHub repo size](https://img.shields.io/github/repo-size/galafis/Automated-Report-Generator?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/galafis/Automated-Report-Generator?style=for-the-badge)
 ![GitHub license](https://img.shields.io/github/license/galafis/Automated-Report-Generator?style=for-the-badge)
+![GitHub Pages](https://img.shields.io/github/actions/workflow/status/galafis/Automated-Report-Generator/pages/pages-build-deployment?label=GitHub%20Pages&style=for-the-badge)
 
 ## English
 
@@ -12,9 +12,9 @@
 
 [View GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
 
+### 🖼️ Hero Image
+
 ![Hero Image](docs/assets/new_hero_images/new_hero_image.png)
-
-
 
 Advanced Automated-Report-Generator with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
 
@@ -176,8 +176,9 @@ The `config.json` file, located in the `config/` directory, allows customization
 
 [Ver GitHub Pages](https://galafis.github.io/Automated-Report-Generator/)
 
-![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
+### 🖼️ Imagem Hero
 
+![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
 
 Gerador de Relatórios Automatizado avançado com funcionalidade abrangente e um conjunto de tecnologias modernas. Apresenta múltiplas linguagens de programação, interfaces web interativas e capacidades de análise avançadas para soluções de nível profissional.
 
@@ -343,4 +344,5 @@ Para dúvidas ou suporte, entre em contato através do email ou LinkedIn mencion
 ### Governança
 - [Código de Conduta](CODE_OF_CONDUCT.md)
 - [Diretrizes de Contribuição](CONTRIBUTING.md)
+
 
