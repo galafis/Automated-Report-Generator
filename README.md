@@ -14,9 +14,9 @@
 
 ### 🖼️ Hero Image
 
-![Hero Image](docs/assets/new_hero_images/new_hero_image.png)
+![Hero Image](docs/assets/hero_image.jpg)
 
-Advanced Automated-Report-Generator with comprehensive functionality and modern technology stack. Features multiple programming languages, interactive web interfaces, and advanced analytics capabilities for professional-grade solutions.
+This project presents an **Advanced Automated Report Generator** designed to streamline data analysis and reporting processes. It leverages a modern technology stack, integrating multiple programming languages to deliver comprehensive functionality, interactive web interfaces, and advanced analytics capabilities. The solution is crafted for professional-grade performance and scalability, making it suitable for various enterprise-level applications.
 
 ### Author
 **Gabriel Demetrios Lafis**
@@ -25,54 +25,62 @@ Advanced Automated-Report-Generator with comprehensive functionality and modern 
 - GitHub: [galafis](https://github.com/galafis)
 
 ### Technologies Used
-- **Backend**: Python (Flask), R
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Analytics**: R, pandas, numpy, matplotlib, seaborn, plotly
-- **Reporting**: ReportLab, Jinja2
-- **Database**: SQLite
-- **Scheduling**: Schedule
+
+| Category         | Technologies                                    |
+| :--------------- | :---------------------------------------------- |
+| **Backend**      | Python (Flask), R                               |
+| **Frontend**     | HTML5, CSS3, JavaScript (ES6+)                  |
+| **Analytics**    | R, pandas, numpy, matplotlib, seaborn, plotly   |
+| **Reporting**    | ReportLab, Jinja2                               |
+| **Database**     | SQLite                                          |
+| **Scheduling**   | Schedule                                        |
 
 ### Features
 
 #### Core Functionality
-- **Advanced Processing**: High-performance algorithms and data processing.
-- **Real-time Analytics**: Live data analysis and visualization.
-- **Interactive Interface**: Modern web interface with responsive design.
-- **Statistical Analysis**: Comprehensive R-based analytics and reporting.
-- **Scalable Architecture**: Built for enterprise-level performance.
-- **Automated Reporting**: Generation of PDF reports and interactive dashboards.
-- **Email Distribution**: Automated email sending with report attachments.
+- **Advanced Processing**: Utilizes high-performance algorithms for efficient data processing and transformation.
+- **Real-time Analytics**: Provides live data analysis and visualization for immediate insights.
+- **Interactive Interface**: Features a modern, responsive web interface for intuitive user interaction.
+- **Statistical Analysis**: Incorporates comprehensive R-based analytics for in-depth statistical reporting.
+- **Scalable Architecture**: Designed for enterprise-level performance and easy scalability.
+- **Automated Reporting**: Generates professional PDF reports and interactive dashboards automatically.
+- **Email Distribution**: Supports automated email sending with attached reports for seamless distribution.
 
 #### Web Interface
-- **Modern UI**: HTML5 semantic markup with accessibility features.
-- **Responsive Design**: CSS3 with Grid, Flexbox, and mobile optimization.
-- **Interactive Elements**: JavaScript ES6+ with modern web APIs.
-- **Real-time Updates**: Dynamic content and live data visualization.
-- **Professional Styling**: Custom CSS animations and transitions.
+- **Modern UI**: Built with HTML5 semantic markup, ensuring accessibility and best practices.
+- **Responsive Design**: Employs CSS3 with Grid and Flexbox for optimal viewing across all devices.
+- **Interactive Elements**: Enhanced with JavaScript ES6+ and modern web APIs for dynamic content.
+- **Real-time Updates**: Delivers dynamic content and live data visualization for up-to-the-minute information.
+- **Professional Styling**: Custom CSS animations and transitions provide a polished user experience.
 
 #### Analytics & Reporting
-- **R Integration**: Advanced statistical analysis and data visualization.
-- **Data Processing**: Automated data cleaning and transformation using pandas and numpy.
-- **Visualization**: Interactive charts (Plotly) and static plots (Matplotlib, Seaborn).
-- **Performance Metrics**: Real-time monitoring and analytics.
-- **Export Options**: Multiple format support for reports (PDF, HTML).
+- **R Integration**: Seamless integration with R for advanced statistical analysis and data visualization.
+- **Data Processing**: Automated data cleaning and transformation using powerful Python libraries like pandas and numpy.
+- **Visualization**: Offers both interactive charts (Plotly) and static plots (Matplotlib, Seaborn) for diverse reporting needs.
+- **Métricas de Performance**: Real-time monitoring and analytics to track key performance indicators.
+- **Export Options**: Multiple format support for reports, including PDF and HTML.
 
 ### Installation
 
+To set up the Automated Report Generator, follow these steps:
+
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone https://github.com/galafis/Automated-Report-Generator.git
 cd Automated-Report-Generator
 
-# Python setup
+# 2. Python setup
 python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# R setup (install required packages)
-Rscript -e "install.packages(c(\'ggplot2\', \'dplyr\', \'corrplot\', \'plotly\'))"
+# 3. R setup (install required packages)
+# Note: R and its packages can be complex to install. Ensure R is installed on your system.
+# For Debian/Ubuntu: sudo apt-get update && sudo apt-get install -y r-base
+# Then, run the following in an R console or Rscript:
+# install.packages(c(\'ggplot2\', \'dplyr\', \'corrplot\', \'plotly\'), repos=\'http://cran.us.r-project.org\')
 
-# Run the application
+# 4. Run the application
 python3 src/app.py
 ```
 
@@ -85,10 +93,10 @@ python3 src/app.py
    ```
 
 2. **Access Web Interface**
-   - Open `index.html` in your browser for the frontend interface.
-   - Interactive dashboard with real-time functionality.
-   - Responsive design works on desktop and mobile devices.
-   - Click the "Buscar Dados do Backend" button to fetch sample data.
+   - Open `index.html` (located in the `templates` folder) in your browser for the frontend interface.
+   - Explore the interactive dashboard with real-time functionality.
+   - The responsive design ensures compatibility across desktop and mobile devices.
+   - Click the "Buscar Dados do Backend" button to fetch sample data and observe dynamic updates.
 
 ### File Structure
 
@@ -108,12 +116,13 @@ Automated-Report-Generator/
 │   ├── app.py            # Main Flask application
 │   ├── report_generator.py # Python script for report generation logic
 │   └── styles.css        # CSS for styling the web interface
+├── templates/            # HTML templates for Flask application
+│   └── index.html        # Main HTML file for GitHub Pages and Flask rendering
 ├── tests/                # Unit and integration tests
 │   └── test_report_generator.py # Tests for report generation logic
 ├── .gitignore            # Specifies intentionally untracked files to ignore
 ├── CODE_OF_CONDUCT.md    # Code of Conduct guidelines
 ├── CONTRIBUTING.md       # Guidelines for contributing to the project
-├── index.html            # Main HTML file for GitHub Pages
 ├── LICENSE               # Project license information
 ├── README.md             # Project README (this file)
 └── requirements.txt      # Python dependencies
@@ -163,10 +172,10 @@ The `config.json` file, located in the `config/` directory, allows customization
 ```
 
 ### Performance Features
-- **Multi-threading**: Parallel processing for improved performance.
-- **Caching**: Intelligent caching for faster response times.
-- **Memory Optimization**: Efficient memory usage and management.
-- **Scalability**: Horizontal scaling support for enterprise use.
+- **Multi-threading**: Implementa processamento paralelo para melhor desempenho e responsividade.
+- **Cache**: Utiliza mecanismos de cache inteligentes para tempos de resposta mais rápidos e carga reduzida.
+- **Otimização de Memória**: Emprega técnicas eficientes de uso e gerenciamento de memória.
+- **Escalabilidade**: Suporta escalonamento horizontal para atender às demandas de aplicações de nível empresarial.
 
 ---
 
@@ -178,9 +187,9 @@ The `config.json` file, located in the `config/` directory, allows customization
 
 ### 🖼️ Imagem Hero
 
-![Imagem Hero](docs/assets/new_hero_images/new_hero_image.png)
+![Imagem Hero](docs/assets/hero_image.jpg)
 
-Gerador de Relatórios Automatizado avançado com funcionalidade abrangente e um conjunto de tecnologias modernas. Apresenta múltiplas linguagens de programação, interfaces web interativas e capacidades de análise avançadas para soluções de nível profissional.
+Este projeto apresenta um **Gerador de Relatórios Automatizado Avançado** projetado para otimizar os processos de análise e geração de relatórios. Ele utiliza um conjunto de tecnologias modernas, integrando múltiplas linguagens de programação para oferecer funcionalidade abrangente, interfaces web interativas e capacidades de análise avançadas. A solução é desenvolvida para desempenho e escalabilidade de nível profissional, tornando-a adequada para diversas aplicações empresariais.
 
 ### Autor
 **Gabriel Demetrios Lafis**
@@ -189,54 +198,62 @@ Gerador de Relatórios Automatizado avançado com funcionalidade abrangente e um
 - GitHub: [galafis](https://github.com/galafis)
 
 ### Tecnologias Utilizadas
-- **Backend**: Python (Flask), R
-- **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Análises**: R, pandas, numpy, matplotlib, seaborn, plotly
-- **Geração de Relatórios**: ReportLab, Jinja2
-- **Banco de Dados**: SQLite
-- **Agendamento**: Schedule
+
+| Categoria        | Tecnologias                                     |
+| :--------------- | :---------------------------------------------- |
+| **Backend**      | Python (Flask), R                               |
+| **Frontend**     | HTML5, CSS3, JavaScript (ES6+)                  |
+| **Análises**     | R, pandas, numpy, matplotlib, seaborn, plotly   |
+| **Geração de Relatórios** | ReportLab, Jinja2                               |
+| **Banco de Dados** | SQLite                                          |
+| **Agendamento**  | Schedule                                        |
 
 ### Funcionalidades
 
 #### Funcionalidade Principal
-- **Processamento Avançado**: Algoritmos de alta performance e processamento de dados.
-- **Análises em Tempo Real**: Análise e visualização de dados ao vivo.
-- **Interface Interativa**: Interface web moderna com design responsivo.
-- **Análise Estatística**: Análises abrangentes baseadas em R e relatórios.
-- **Arquitetura Escalável**: Construído para performance de nível empresarial.
-- **Relatórios Automatizados**: Geração de relatórios em PDF e dashboards interativos.
-- **Distribuição por E-mail**: Envio automatizado de e-mails com relatórios anexados.
+- **Processamento Avançado**: Utiliza algoritmos de alta performance para processamento e transformação eficiente de dados.
+- **Análises em Tempo Real**: Fornece análise e visualização de dados ao vivo para insights imediatos.
+- **Interface Interativa**: Apresenta uma interface web moderna e responsiva para interação intuitiva do usuário.
+- **Análise Estatística**: Incorpora análises abrangentes baseadas em R para relatórios estatísticos aprofundados.
+- **Arquitetura Escalável**: Projetado para desempenho de nível empresarial e fácil escalabilidade.
+- **Relatórios Automatizados**: Gera automaticamente relatórios PDF profissionais e dashboards interativos.
+- **Distribuição por E-mail**: Suporta o envio automatizado de e-mails com relatórios anexados para distribuição contínua.
 
 #### Interface Web
-- **UI Moderna**: Marcação semântica HTML5 com recursos de acessibilidade.
-- **Design Responsivo**: CSS3 com Grid, Flexbox e otimização para dispositivos móveis.
-- **Elementos Interativos**: JavaScript ES6+ com APIs web modernas.
-- **Atualizações em Tempo Real**: Conteúdo dinâmico e visualização de dados ao vivo.
-- **Estilização Profissional**: Animações e transições CSS personalizadas.
+- **UI Moderna**: Construída com marcação semântica HTML5, garantindo acessibilidade e melhores práticas.
+- **Design Responsivo**: Emprega CSS3 com Grid e Flexbox para visualização otimizada em todos os dispositivos.
+- **Elementos Interativos**: Aprimorada com JavaScript ES6+ e APIs web modernas para conteúdo dinâmico.
+- **Atualizações em Tempo Real**: Oferece conteúdo dinâmico e visualização de dados ao vivo para informações atualizadas.
+- **Estilização Profissional**: Animações e transições CSS personalizadas proporcionam uma experiência de usuário refinada.
 
 #### Análises e Relatórios
-- **Integração R**: Análise estatística avançada e visualização de dados.
-- **Processamento de Dados**: Limpeza e transformação automatizada de dados usando pandas e numpy.
-- **Visualização**: Gráficos interativos (Plotly) e gráficos estáticos (Matplotlib, Seaborn).
-- **Métricas de Performance**: Monitoramento e análises em tempo real.
-- **Opções de Exportação**: Suporte a múltiplos formatos para relatórios (PDF, HTML).
+- **Integração R**: Integração perfeita com R para análise estatística avançada e visualização de dados.
+- **Processamento de Dados**: Limpeza e transformação automatizada de dados usando poderosas bibliotecas Python como pandas e numpy.
+- **Visualização**: Oferece gráficos interativos (Plotly) e gráficos estáticos (Matplotlib, Seaborn) para diversas necessidades de relatórios.
+- **Métricas de Performance**: Monitoramento e análises em tempo real para acompanhar os principais indicadores de desempenho.
+- **Opções de Exportação**: Suporte a múltiplos formatos para relatórios, incluindo PDF e HTML.
 
 ### Instalação
 
+Para configurar o Gerador de Relatórios Automatizado, siga estes passos:
+
 ```bash
-# Clonar o repositório
+# 1. Clonar o repositório
 git clone https://github.com/galafis/Automated-Report-Generator.git
 cd Automated-Report-Generator
 
-# Configuração Python
+# 2. Configuração Python
 python3 -m venv venv
 source venv/bin/activate  # No Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-# Configuração R (instalar pacotes necessários)
-Rscript -e "install.packages(c(\'ggplot2\', \'dplyr\', \'corrplot\', \'plotly\'))"
+# 3. R setup (install required packages)
+# Nota: R e seus pacotes podem ser complexos de instalar. Certifique-se de que o R esteja instalado em seu sistema.
+# Para Debian/Ubuntu: sudo apt-get update && sudo apt-get install -y r-base
+# Em seguida, execute o seguinte em um console R ou Rscript:
+# install.packages(c(\'ggplot2\', \'dplyr\', \'corrplot\', \'plotly\'), repos=\'http://cran.us.r-project.org\')
 
-# Executar a aplicação
+# 4. Executar a aplicação
 python3 src/app.py
 ```
 
@@ -249,12 +266,12 @@ python3 src/app.py
    ```
 
 2. **Acessar Interface Web**
-   - Abrir `index.html` no seu navegador para a interface frontend.
-   - Dashboard interativo com funcionalidade em tempo real.
-   - Design responsivo funciona em desktop e dispositivos móveis.
-   - Clique no botão "Buscar Dados do Backend" para buscar dados de exemplo.
+   - Abra `index.html` (localizado na pasta `templates`) em seu navegador para a interface frontend.
+   - Explore o dashboard interativo com funcionalidade em tempo real.
+   - O design responsivo garante compatibilidade em desktops e dispositivos móveis.
+   - Clique no botão "Buscar Dados do Backend" para buscar dados de exemplo e observar as atualizações dinâmicas.
 
-### Estrutura de Arquivos
+### File Structure
 
 ```
 Automated-Report-Generator/
@@ -267,23 +284,24 @@ Automated-Report-Generator/
 │       ├── workflow_en.png
 │       └── workflow_pt.png
 ├── src/                  # Código fonte da aplicação
-│   ├── analytics.R       # Script de análise estatística em R
+│   ├── analytics.R       # R statistical analysis script
 │   ├── app.js            # JavaScript para interatividade frontend
 │   ├── app.py            # Aplicação Flask principal
 │   ├── report_generator.py # Script Python para a lógica de geração de relatórios
 │   └── styles.css        # CSS para estilização da interface web
+├── templates/            # HTML templates para a aplicação Flask
+│   └── index.html        # Arquivo HTML principal para GitHub Pages e renderização Flask
 ├── tests/                # Testes unitários e de integração
 │   └── test_report_generator.py # Testes para a lógica de geração de relatórios
 ├── .gitignore            # Especifica arquivos intencionalmente não rastreados a serem ignorados
 ├── CODE_OF_CONDUCT.md    # Diretrizes do Código de Conduta
 ├── CONTRIBUTING.md       # Diretrizes para contribuição ao projeto
-├── index.html            # Arquivo HTML principal para GitHub Pages
 ├── LICENSE               # Informações da licença do projeto
-├── README.md             # README do projeto (este arquivo)
+├── README.md             # Project README (este arquivo)
 └── requirements.txt      # Dependências Python
 ```
 
-### Fluxo de Trabalho
+### Workflow
 
 ![Diagrama de Fluxo de Trabalho (Português)](docs/assets/workflow_pt.png)
 
@@ -327,10 +345,10 @@ O arquivo `config.json`, localizado no diretório `config/`, permite a personali
 ```
 
 ### Recursos de Performance
-- **Multi-threading**: Processamento paralelo para melhor performance.
-- **Cache**: Cache inteligente para tempos de resposta mais rápidos.
-- **Otimização de Memória**: Uso eficiente de memória e gerenciamento.
-- **Escalabilidade**: Suporte a escalonamento horizontal para uso empresarial.
+- **Multi-threading**: Implementa processamento paralelo para melhor desempenho e responsividade.
+- **Cache**: Utiliza mecanismos de cache inteligentes para tempos de resposta mais rápidos e carga reduzida.
+- **Otimização de Memória**: Emprega técnicas eficientes de uso e gerenciamento de memória.
+- **Escalabilidade**: Suporta escalonamento horizontal para atender às demandas de aplicações de nível empresarial.
 
 ### Licença
 MIT License
@@ -344,5 +362,4 @@ Para dúvidas ou suporte, entre em contato através do email ou LinkedIn mencion
 ### Governança
 - [Código de Conduta](CODE_OF_CONDUCT.md)
 - [Diretrizes de Contribuição](CONTRIBUTING.md)
-
 
