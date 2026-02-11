@@ -4,7 +4,6 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/galafis/Automated-Report-Generator?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/galafis/Automated-Report-Generator?style=for-the-badge)
 ![GitHub license](https://img.shields.io/github/license/galafis/Automated-Report-Generator?style=for-the-badge)
-![GitHub Pages](https://img.shields.io/github/actions/workflow/status/galafis/Automated-Report-Generator/pages/pages-build-deployment?label=GitHub%20Pages&style=for-the-badge)
 
 ## English
 
@@ -108,8 +107,8 @@ Automated-Report-Generator/
 ├── docs/                 # Documentation and assets
 │   └── assets/           # Images, diagrams, and other media
 │       ├── hero_image.jpg
-│       ├── workflow_en.png
-│       └── workflow_pt.png
+│       ├── workflow_en.mmd
+│       └── workflow_pt.mmd
 ├── src/                  # Source code for the application
 │   ├── analytics.R       # R statistical analysis script
 │   ├── app.js            # JavaScript for frontend interactivity
@@ -130,7 +129,7 @@ Automated-Report-Generator/
 
 ### Workflow
 
-![Workflow Diagram (English)](docs/assets/workflow_en.png)
+[Workflow Diagram (English)](docs/assets/workflow_en.mmd)
 
 ### API Endpoints
 
@@ -281,8 +280,8 @@ Automated-Report-Generator/
 ├── docs/                 # Documentação e ativos
 │   └── assets/           # Imagens, diagramas e outras mídias
 │       ├── hero_image.jpg
-│       ├── workflow_en.png
-│       └── workflow_pt.png
+│       ├── workflow_en.mmd
+│       └── workflow_pt.mmd
 ├── src/                  # Código fonte da aplicação
 │   ├── analytics.R       # R statistical analysis script
 │   ├── app.js            # JavaScript para interatividade frontend
@@ -303,7 +302,7 @@ Automated-Report-Generator/
 
 ### Workflow
 
-![Diagrama de Fluxo de Trabalho (Português)](docs/assets/workflow_pt.png)
+[Diagrama de Fluxo de Trabalho (Português)](docs/assets/workflow_pt.mmd)
 
 ### Endpoints da API
 
