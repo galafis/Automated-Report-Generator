@@ -1,22 +1,36 @@
 
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template_string, request, jsonify
 
 app = Flask(__name__)
 
+DASHBOARD_HTML = """
+<!DOCTYPE html>
+<html>
+<head><title>Report Generator</title></head>
+<body>
+<h1>Automated Report Generator</h1>
+<p>Use the API endpoints below:</p>
+<ul>
+  <li><code>POST /api/process</code> — Process data</li>
+  <li><code>GET /api/analytics</code> — Get analytics</li>
+  <li><code>POST /api/upload</code> — Upload file</li>
+  <li><code>GET /api/status</code> — System status</li>
+</ul>
+</body>
+</html>
+"""
+
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template_string(DASHBOARD_HTML)
 
 @app.route('/api/process', methods=['POST'])
 def process_data():
     data = request.json
-    # Aqui você adicionaria a lógica de processamento de dados
-    # Por enquanto, apenas retorna os dados recebidos
     return jsonify({'status': 'success', 'processed_data': data})
 
 @app.route('/api/analytics', methods=['GET'])
 def get_analytics():
-    # Aqui você adicionaria a lógica para gerar e retornar resultados de análise
     return jsonify({'status': 'success', 'analytics_results': 'Sample analytics data'})
 
 @app.route('/api/upload', methods=['POST'])
@@ -27,7 +41,6 @@ def upload_file():
     if file.filename == '':
         return jsonify({'status': 'error', 'message': 'No selected file'})
     if file:
-        # Aqui você adicionaria a lógica para salvar o arquivo
         return jsonify({'status': 'success', 'message': f'File {file.filename} uploaded successfully'})
     return jsonify({'status': 'error', 'message': 'File upload failed'})
 
@@ -36,5 +49,4 @@ def get_status():
     return jsonify({'status': 'success', 'system_status': 'Operational'})
 
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    app.run(debug=False)

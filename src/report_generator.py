@@ -8,7 +8,7 @@ data visualization, and automated scheduling capabilities.
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
+
 from datetime import datetime, timedelta
 import json
 import sqlite3
@@ -20,7 +20,7 @@ from email.mime.base import MIMEBase
 from email import encoders
 import schedule
 import time
-from jinja2 import Template
+
 import plotly.graph_objects as go
 import plotly.express as px
 from reportlab.lib.pagesizes import letter, A4
@@ -36,7 +36,6 @@ class ReportGenerator:
         """Initialize the report generator with configuration."""
         self.config = self.load_config(config_file)
         self.data_sources = {}
-        self.templates = {}
         self.output_dir = Path(self.config.get('output_directory', 'reports'))
         self.output_dir.mkdir(exist_ok=True)
         
@@ -151,7 +150,13 @@ class ReportGenerator:
     
     def create_visualizations(self, sales_df, analysis):
         """Create various visualizations for the report."""
-        plt.style.use('seaborn-v0_8')
+        try:
+            plt.style.use('seaborn-v0_8')
+        except OSError:
+            try:
+                plt.style.use('seaborn')
+            except OSError:
+                plt.style.use('ggplot')
         fig, axes = plt.subplots(2, 2, figsize=(15, 12))
         
         # Daily sales trend
@@ -413,8 +418,8 @@ class ReportGenerator:
         # Schedule weekly sales report
         schedule.every().monday.at("09:00").do(self.generate_full_report)
         
-        # Schedule monthly financial report
-        schedule.every().month.do(self.generate_full_report)
+        # Schedule monthly financial report (every 30 days)
+        schedule.every(30).days.do(self.generate_full_report)
         
         print("Report scheduling activated. Reports will be generated automatically.")
         print("Weekly reports: Every Monday at 9:00 AM")

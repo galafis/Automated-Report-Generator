@@ -1,319 +1,191 @@
-# 🚀 Automated Report Generator
+# Automated Report Generator
 
-> Professional project by Gabriel Demetrios Lafis
-
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://img.shields.io/badge/)
-[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://img.shields.io/badge/)
-[![Flask](https://img.shields.io/badge/Flask-3.0-000000.svg)](https://img.shields.io/badge/)
-[![NumPy](https://img.shields.io/badge/NumPy-1.26-013243.svg)](https://img.shields.io/badge/)
-[![Pandas](https://img.shields.io/badge/Pandas-2.2-150458.svg)](https://img.shields.io/badge/)
-[![Plotly](https://img.shields.io/badge/Plotly-5.18-3F4F75.svg)](https://img.shields.io/badge/)
+[![Python](https://img.shields.io/badge/Python-3.9+-3776AB.svg)](https://www.python.org/)
+[![matplotlib](https://img.shields.io/badge/matplotlib-charts-11557C.svg)](https://matplotlib.org/)
+[![ReportLab](https://img.shields.io/badge/ReportLab-PDF-red.svg)](https://www.reportlab.com/)
+[![Flask](https://img.shields.io/badge/Flask-API-000000.svg)](https://flask.palletsprojects.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-[English](#english) | [Português](#português)
+[Portugues](#portugues) | [English](#english)
+
+---
+
+## Portugues
+
+### Sobre
+
+Gerador automatizado de relatorios PDF com analise de vendas, graficos matplotlib e envio por e-mail.
+
+O modulo principal (`src/report_generator.py`, ~440 linhas) faz o seguinte:
+
+- Gera dados sinteticos de vendas e clientes (simulacao com sazonalidade)
+- Armazena dados em banco SQLite
+- Cria graficos estaticos com matplotlib (tendencia diaria, por categoria, por regiao, mensal)
+- Cria dashboard interativo com Plotly
+- Gera relatorios PDF completos com ReportLab (tabelas KPI, graficos embutidos)
+- Envia relatorios por e-mail via SMTP
+- Agendamento automatico com a biblioteca `schedule` (semanal e a cada 30 dias)
+
+Tambem inclui um stub de API web Flask (`src/app.py`) com endpoints basicos.
+
+### Como Executar
+
+```bash
+# Clonar o repositorio
+git clone https://github.com/galafis/Automated-Report-Generator.git
+cd Automated-Report-Generator
+
+# Criar ambiente virtual
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+
+# Instalar dependencias
+pip install -r requirements.txt
+
+# Gerar relatorio
+python src/report_generator.py
+```
+
+Os arquivos gerados ficam no diretorio `reports/`:
+- `sales_report_YYYYMMDD.pdf` — relatorio PDF
+- `sales_analysis_charts.png` — graficos matplotlib
+- `interactive_dashboard.html` — dashboard Plotly
+
+### Testes
+
+```bash
+pytest tests/ -v
+```
+
+### Estrutura do Projeto
+
+```
+Automated-Report-Generator/
+├── src/
+│   ├── __init__.py
+│   ├── report_generator.py   # Modulo principal (~440 linhas)
+│   └── app.py                # Stub Flask API
+├── tests/
+│   └── test_report_generator.py
+├── docs/
+│   └── assets/
+│       ├── workflow_en.mmd    # Diagrama Mermaid (EN)
+│       └── workflow_pt.mmd    # Diagrama Mermaid (PT)
+├── requirements.txt
+├── LICENSE
+└── README.md
+```
+
+### Tecnologias
+
+| Tecnologia | Uso |
+|---|---|
+| Python | Linguagem principal |
+| pandas / numpy | Geracao e manipulacao de dados |
+| matplotlib | Graficos estaticos |
+| Plotly | Dashboard interativo |
+| ReportLab | Geracao de PDF |
+| SQLite | Armazenamento de dados |
+| schedule | Agendamento de tarefas |
+| Flask | API web (stub) |
+
+### Autor
+
+**Gabriel Demetrios Lafis**
+- GitHub: [@galafis](https://github.com/galafis)
+- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+
+### Licenca
+
+MIT — veja [LICENSE](LICENSE).
 
 ---
 
 ## English
 
-### 🎯 Overview
+### About
 
-**Automated Report Generator** is a production-grade Python application complemented by CSS, HTML, JavaScript, R that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
+Automated PDF report generator with sales analytics, matplotlib charts, and email delivery.
 
-The codebase comprises **1,071 lines** of source code organized across **7 modules**, following industry best practices for maintainability, scalability, and code quality.
+The main module (`src/report_generator.py`, ~440 lines) does the following:
 
-### ✨ Key Features
+- Generates synthetic sales and customer data (seasonal simulation)
+- Stores data in SQLite database
+- Creates static charts with matplotlib (daily trend, by category, by region, monthly)
+- Creates interactive dashboard with Plotly
+- Generates complete PDF reports with ReportLab (KPI tables, embedded charts)
+- Sends reports via email (SMTP)
+- Automatic scheduling with the `schedule` library (weekly and every 30 days)
 
-- **🐳 Containerized**: Docker support for consistent deployment
-- **🏗️ Object-Oriented**: 3 core classes with clean architecture
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
+Also includes a Flask web API stub (`src/app.py`) with basic endpoints.
 
-### 🏗️ Architecture
-
-```mermaid
-graph TB
-    subgraph Client["🖥️ Client Layer"]
-        A[Web Client]
-        B[API Documentation]
-    end
-    
-    subgraph API["⚡ API Layer"]
-        C[Middleware Pipeline]
-        D[Route Handlers]
-        E[Business Logic]
-    end
-    
-    subgraph Data["💾 Data Layer"]
-        F[(Primary Database)]
-        G[Cache]
-    end
-    
-    A --> C
-    B --> C
-    C --> D --> E
-    E --> F
-    E --> G
-    
-    style Client fill:#e1f5fe
-    style API fill:#f3e5f5
-    style Data fill:#fff3e0
-```
-
-```mermaid
-classDiagram
-    class ApplicationManager
-    class ReportGenerator
-    ApplicationManager --> ApplicationManager : uses
-    ApplicationManager --> ReportGenerator : uses
-```
-
-### 🚀 Quick Start
-
-#### Prerequisites
-
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
+### How to Run
 
 ```bash
 # Clone the repository
 git clone https://github.com/galafis/Automated-Report-Generator.git
 cd Automated-Report-Generator
 
-# Create and activate virtual environment
+# Create virtual environment
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows: venv\Scripts\activate
 
 # Install dependencies
 pip install -r requirements.txt
+
+# Generate report
+python src/report_generator.py
 ```
 
-#### Running
+Generated files go to the `reports/` directory:
+- `sales_report_YYYYMMDD.pdf` — PDF report
+- `sales_analysis_charts.png` — matplotlib charts
+- `interactive_dashboard.html` — Plotly dashboard
+
+### Tests
 
 ```bash
-# Run the application
-python src/app.py
+pytest tests/ -v
 ```
 
-### 🧪 Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
-```
-
-### 📁 Project Structure
+### Project Structure
 
 ```
 Automated-Report-Generator/
-├── docs/          # Documentation
-│   └── assets/
-│       └── new_hero_images/
-├── src/          # Source code
-│   ├── analytics.R
-│   ├── app.js
-│   ├── app.py
-│   └── report_generator.py
-├── tests/         # Test suite
+├── src/
+│   ├── __init__.py
+│   ├── report_generator.py   # Main module (~440 lines)
+│   └── app.py                # Flask API stub
+├── tests/
 │   └── test_report_generator.py
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── Dockerfile
+├── docs/
+│   └── assets/
+│       ├── workflow_en.mmd    # Mermaid diagram (EN)
+│       └── workflow_pt.mmd    # Mermaid diagram (PT)
+├── requirements.txt
 ├── LICENSE
-├── README.md
-└── requirements.txt
+└── README.md
 ```
 
-### 🛠️ Tech Stack
+### Tech Stack
 
-| Technology | Description | Role |
-|------------|-------------|------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| **Flask** | Lightweight web framework | Framework |
-| **NumPy** | Numerical computing | Framework |
-| **Pandas** | Data manipulation library | Framework |
-| **Plotly** | Interactive visualization | Framework |
-| HTML | 1 files | Supporting |
-| R | 1 files | Supporting |
-| JavaScript | 1 files | Supporting |
-| CSS | 1 files | Supporting |
+| Technology | Usage |
+|---|---|
+| Python | Primary language |
+| pandas / numpy | Data generation and manipulation |
+| matplotlib | Static charts |
+| Plotly | Interactive dashboard |
+| ReportLab | PDF generation |
+| SQLite | Data storage |
+| schedule | Task scheduling |
+| Flask | Web API (stub) |
 
-### 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-### 👤 Author
+### Author
 
 **Gabriel Demetrios Lafis**
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
----
+### License
 
-## Português
-
-### 🎯 Visão Geral
-
-**Automated Report Generator** é uma aplicação Python de nível profissional, complementada por CSS, HTML, JavaScript, R que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
-
-A base de código compreende **1,071 linhas** de código-fonte organizadas em **7 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
-
-### ✨ Funcionalidades Principais
-
-- **🐳 Containerized**: Docker support for consistent deployment
-- **🏗️ Object-Oriented**: 3 core classes with clean architecture
-- **📐 Clean Architecture**: Modular design with clear separation of concerns
-- **🧪 Test Coverage**: Unit and integration tests for reliability
-- **📚 Documentation**: Comprehensive inline documentation and examples
-- **🔧 Configuration**: Environment-based configuration management
-
-### 🏗️ Arquitetura
-
-```mermaid
-graph TB
-    subgraph Client["🖥️ Client Layer"]
-        A[Web Client]
-        B[API Documentation]
-    end
-    
-    subgraph API["⚡ API Layer"]
-        C[Middleware Pipeline]
-        D[Route Handlers]
-        E[Business Logic]
-    end
-    
-    subgraph Data["💾 Data Layer"]
-        F[(Primary Database)]
-        G[Cache]
-    end
-    
-    A --> C
-    B --> C
-    C --> D --> E
-    E --> F
-    E --> G
-    
-    style Client fill:#e1f5fe
-    style API fill:#f3e5f5
-    style Data fill:#fff3e0
-```
-
-### 🚀 Início Rápido
-
-#### Prerequisites
-
-- Python 3.12+
-- pip (Python package manager)
-
-#### Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/galafis/Automated-Report-Generator.git
-cd Automated-Report-Generator
-
-# Create and activate virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-```
-
-#### Running
-
-```bash
-# Run the application
-python src/app.py
-```
-
-### 🧪 Testing
-
-```bash
-# Run all tests
-pytest
-
-# Run with coverage report
-pytest --cov --cov-report=html
-
-# Run specific test module
-pytest tests/test_main.py -v
-
-# Run with detailed output
-pytest -v --tb=short
-```
-
-### 📁 Estrutura do Projeto
-
-```
-Automated-Report-Generator/
-├── docs/          # Documentation
-│   └── assets/
-│       └── new_hero_images/
-├── src/          # Source code
-│   ├── analytics.R
-│   ├── app.js
-│   ├── app.py
-│   └── report_generator.py
-├── tests/         # Test suite
-│   └── test_report_generator.py
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── Dockerfile
-├── LICENSE
-├── README.md
-└── requirements.txt
-```
-
-### 🛠️ Stack Tecnológica
-
-| Tecnologia | Descrição | Papel |
-|------------|-----------|-------|
-| **Python** | Core Language | Primary |
-| **Docker** | Containerization platform | Framework |
-| **Flask** | Lightweight web framework | Framework |
-| **NumPy** | Numerical computing | Framework |
-| **Pandas** | Data manipulation library | Framework |
-| **Plotly** | Interactive visualization | Framework |
-| HTML | 1 files | Supporting |
-| R | 1 files | Supporting |
-| JavaScript | 1 files | Supporting |
-| CSS | 1 files | Supporting |
-
-### 🤝 Contribuindo
-
-Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
-
-### 📄 Licença
-
-Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
-### 👤 Autor
-
-**Gabriel Demetrios Lafis**
-- GitHub: [@galafis](https://github.com/galafis)
-- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+MIT — see [LICENSE](LICENSE).

@@ -1,12 +1,9 @@
 node_modules/
 *.log
 .env
-__pycache__/
-*.pyc
 .DS_Store
 dist/
 build/
-
 
 # Python
 __pycache__/
@@ -31,9 +28,6 @@ venv/
 # Reports and generated files
 reports/
 *.pdf
-*.html
-*.png
 
 # Config files
 config.json
-
