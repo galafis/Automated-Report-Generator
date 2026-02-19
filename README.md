@@ -28,6 +28,19 @@ O modulo principal (`src/report_generator.py`, ~440 linhas) faz o seguinte:
 
 Tambem inclui um stub de API web Flask (`src/app.py`) com endpoints basicos.
 
+### Arquitetura do Pipeline
+
+```mermaid
+flowchart LR
+    A[Dados Sinteticos\nVendas e Clientes] --> B[SQLite\nArmazenamento]
+    B --> C[Matplotlib\nGraficos Estaticos]
+    B --> D[Plotly\nDashboard Interativo]
+    C --> E[ReportLab\nRelatorio PDF]
+    D --> E
+    E --> F[SMTP\nEnvio por E-mail]
+    E --> G[Schedule\nAgendamento Automatico]
+```
+
 ### Como Executar
 
 ```bash
