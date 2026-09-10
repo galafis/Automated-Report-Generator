@@ -22,7 +22,7 @@ def render(output_dir):
             analysis, frame = generator.generate_sales_analysis(conn)
         chart = generator.create_visualizations(frame, analysis)
         dashboard = generator.create_interactive_dashboard(frame, analysis)
-        pdf = generator.generate_pdf_report(analysis, chart)
+        pdf = generator.generate_pdf_report(analysis, chart, synthetic=True)
         assert Path(pdf).read_bytes().startswith(b"%PDF-")
         return {"pdf": pdf, "chart": chart, "dashboard": dashboard}
 

@@ -7,3 +7,4 @@ plotly==7.0.0
 reportlab==4.4.9
 schedule==1.2.2
 ruff==0.16.7
+pypdf==6.10.0

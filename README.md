@@ -115,3 +115,9 @@ PT: Ao alterar comportamento, atualize em conjunto o contrato, o exemplo e um te
 Author / Autor: [Gabriel Demetrios Lafis](https://github.com/galafis) · [Institutional contact / Contato institucional](mailto:gabrieldemetrioslafis@usp.br)
 
 License / Licença: [repository license](LICENSE).
+
+## Additional contract checks · Verificações adicionais de contrato
+
+PDF data provenance is explicit: generate_pdf_report(..., synthetic=True) labels a synthetic example; the default labels supplied data without asserting its origin. The documented fictional example passes the flag explicitly. Interactive chart titles and labels are bilingual.
+
+A origem dos dados do PDF é explícita: generate_pdf_report(..., synthetic=True) identifica um exemplo fictício; o padrão identifica dados fornecidos sem afirmar sua origem. O exemplo fictício documentado informa a opção explicitamente. Títulos e rótulos dos gráficos interativos são bilíngues.

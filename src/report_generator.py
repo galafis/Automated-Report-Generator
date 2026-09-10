@@ -276,9 +276,9 @@ class ReportGenerator:
             cols=2,
             subplot_titles=(
                 "Daily sales / Vendas diárias",
-                "Category Performance",
-                "Regional Distribution",
-                "Monthly Trends",
+                "Category performance / Desempenho por categoria",
+                "Regional distribution / Distribuição regional",
+                "Monthly trends / Tendências mensais",
             ),
             specs=[
                 [{"secondary_y": False}, {"secondary_y": False}],
@@ -293,7 +293,7 @@ class ReportGenerator:
                 x=daily_sales.index,
                 y=daily_sales.values,
                 mode="lines",
-                name="Daily Sales",
+                name="Daily sales / Vendas diárias",
                 line=dict(color="#2E86AB"),
             ),
             row=1,
@@ -306,7 +306,7 @@ class ReportGenerator:
             go.Bar(
                 x=category_data.index,
                 y=category_data.values,
-                name="Category Sales",
+                name="Category sales / Vendas por categoria",
                 marker_color="#A23B72",
             ),
             row=1,
@@ -319,7 +319,7 @@ class ReportGenerator:
             go.Pie(
                 labels=regional_data.index,
                 values=regional_data.values,
-                name="Regional Sales",
+                name="Regional sales / Vendas por região",
             ),
             row=2,
             col=1,
@@ -345,7 +345,7 @@ class ReportGenerator:
             go.Bar(
                 x=monthly_data.index,
                 y=monthly_data["sales_amount"].values,
-                name="Monthly Sales",
+                name="Monthly sales / Vendas mensais",
                 marker_color="#F18F01",
             ),
             row=2,
@@ -353,7 +353,9 @@ class ReportGenerator:
         )
 
         fig.update_layout(
-            height=800, showlegend=False, title_text="Sales Performance Dashboard"
+            height=800,
+            showlegend=False,
+            title_text="Sales performance / Desempenho de vendas",
         )
 
         dashboard_path = self.output_dir / "interactive_dashboard.html"
@@ -361,8 +363,10 @@ class ReportGenerator:
 
         return str(dashboard_path)
 
-    def generate_pdf_report(self, analysis, chart_path):
+    def generate_pdf_report(self, analysis, chart_path, *, synthetic=False):
         """Build a bilingual report from validated aggregates / Relatório bilíngue."""
+        if not isinstance(synthetic, bool):
+            raise ValueError("Synthetic must be boolean / Synthetic deve ser booleano")
         pdf_path = self.output_dir / "sales_report.pdf"
         doc = SimpleDocTemplate(
             str(pdf_path),
@@ -390,7 +394,12 @@ class ReportGenerator:
         )
         story = [
             Paragraph("Sales performance<br/>Desempenho de vendas", title),
-            Paragraph("SYNTHETIC WORKED EXAMPLE / EXEMPLO FICTÍCIO EXECUTADO", small),
+            Paragraph(
+                "SYNTHETIC WORKED EXAMPLE / EXEMPLO FICTÍCIO EXECUTADO"
+                if synthetic
+                else "SUPPLIED DATA / DADOS FORNECIDOS",
+                small,
+            ),
             Spacer(1, 18),
         ]
         rows = [
@@ -435,9 +444,17 @@ class ReportGenerator:
                 Spacer(1, 10),
                 Paragraph(
                     "Daily metrics aggregate records by date. Months preserve their year. "
-                    "No real company performance is represented.<br/>"
-                    "Métricas diárias agregam registros por data. Meses preservam o ano. "
-                    "Não representa desempenho de uma empresa real.",
+                    + (
+                        "No real company performance is represented.<br/>"
+                        if synthetic
+                        else "Data provenance is supplied by the caller.<br/>"
+                    )
+                    + "Métricas diárias agregam registros por data. Meses preservam o ano. "
+                    + (
+                        "Não representa desempenho de uma empresa real."
+                        if synthetic
+                        else "A origem dos dados é informada por quem chama a biblioteca."
+                    ),
                     small,
                 ),
             ]
@@ -529,7 +546,7 @@ class ReportGenerator:
         dashboard_path = self.create_interactive_dashboard(sales_df, analysis)
 
         # Generate PDF report
-        pdf_path = self.generate_pdf_report(analysis, chart_path)
+        pdf_path = self.generate_pdf_report(analysis, chart_path, synthetic=True)
 
         # Send email (if configured)
         recipients = self.config["report_templates"]["sales_report"]["recipients"]

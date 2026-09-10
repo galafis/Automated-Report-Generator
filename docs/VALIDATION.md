@@ -36,6 +36,12 @@ PT: O exemplo usa vendas fictícias e não envia email. Valores usam análise nu
 
 ## Verified suite / Suíte verificada
 
-**10 software tests passed / testes de software aprovados.**
+**12 software tests passed / testes de software aprovados.**
 
 README Mermaid syntax and local documentation links were checked. / A sintaxe Mermaid do README e os links locais da documentação foram conferidos.
+
+## Additional contract checks · Verificações adicionais de contrato
+
+PDF data provenance is explicit: generate_pdf_report(..., synthetic=True) labels a synthetic example; the default labels supplied data without asserting its origin. The documented fictional example passes the flag explicitly. Interactive chart titles and labels are bilingual.
+
+A origem dos dados do PDF é explícita: generate_pdf_report(..., synthetic=True) identifica um exemplo fictício; o padrão identifica dados fornecidos sem afirmar sua origem. O exemplo fictício documentado informa a opção explicitamente. Títulos e rótulos dos gráficos interativos são bilíngues.
