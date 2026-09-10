@@ -1,0 +1,5 @@
+date,sales_amount,orders,customers,product_category,region
+2024-01-01,100,2,2,Workshop,North
+2024-01-01,50,1,1,Materials,North
+2024-01-02,150,3,3,Workshop,South
+2025-01-01,300,6,5,Materials,South

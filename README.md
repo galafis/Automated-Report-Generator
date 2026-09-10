@@ -1,208 +1,117 @@
-# Automated Report Generator
+# Sales Reporting Pipeline
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
-![Plotly](https://img.shields.io/badge/Plotly-3F4F75?style=for-the-badge&logo=plotly&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![pytest](https://img.shields.io/badge/pytest-0A9EDC?style=for-the-badge&logo=pytest&logoColor=white)
-![License-MIT](https://img.shields.io/badge/License--MIT-yellow?style=for-the-badge)
+### Pipeline de Relatórios de Vendas
 
+[![Validation](https://github.com/galafis/Automated-Report-Generator/actions/workflows/ci.yml/badge.svg)](https://github.com/galafis/Automated-Report-Generator/actions/workflows/ci.yml)
+[English](#english) · [Português](#portugues) · [Examples / Exemplos](examples/review_demo.py) · [Validation / Validação](docs/VALIDATION.md)
 
-[Portugues](#portugues) | [English](#english)
+**Reporting and analytics / Relatórios e análise** · Working prototype / Protótipo funcional · Gabriel Demetrios Lafis
 
----
-
-## Portugues
-
-### Sobre
-
-Gerador automatizado de relatorios PDF com analise de vendas, graficos matplotlib e envio por e-mail.
-
-O modulo principal (`src/report_generator.py`, ~440 linhas) faz o seguinte:
-
-- Gera dados sinteticos de vendas e clientes (simulacao com sazonalidade)
-- Armazena dados em banco SQLite
-- Cria graficos estaticos com matplotlib (tendencia diaria, por categoria, por regiao, mensal)
-- Cria dashboard interativo com Plotly
-- Gera relatorios PDF completos com ReportLab (tabelas KPI, graficos embutidos)
-- Envia relatorios por e-mail via SMTP
-- Agendamento automatico com a biblioteca `schedule` (semanal e a cada 30 dias)
-
-Tambem inclui um stub de API web Flask (`src/app.py`) com endpoints basicos.
-
-### Arquitetura do Pipeline
-
-```mermaid
-flowchart LR
-    A[Dados Sinteticos\nVendas e Clientes] --> B[SQLite\nArmazenamento]
-    B --> C[Matplotlib\nGraficos Estaticos]
-    B --> D[Plotly\nDashboard Interativo]
-    C --> E[ReportLab\nRelatorio PDF]
-    D --> E
-    E --> F[SMTP\nEnvio por E-mail]
-    E --> G[Schedule\nAgendamento Automatico]
-```
-
-### Como Executar
-
-```bash
-# Clonar o repositorio
-git clone https://github.com/galafis/Automated-Report-Generator.git
-cd Automated-Report-Generator
-
-# Criar ambiente virtual
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Instalar dependencias
-pip install -r requirements.txt
-
-# Gerar relatorio
-python src/report_generator.py
-```
-
-Os arquivos gerados ficam no diretorio `reports/`:
-- `sales_report_YYYYMMDD.pdf` — relatorio PDF
-- `sales_analysis_charts.png` — graficos matplotlib
-- `interactive_dashboard.html` — dashboard Plotly
-
-### Testes
-
-```bash
-pytest tests/ -v
-```
-
-### Estrutura do Projeto
-
-```
-Automated-Report-Generator/
-├── src/
-│   ├── __init__.py
-│   ├── report_generator.py   # Modulo principal (~440 linhas)
-│   └── app.py                # Stub Flask API
-├── tests/
-│   └── test_report_generator.py
-├── docs/
-│   └── assets/
-│       ├── workflow_en.mmd    # Diagrama Mermaid (EN)
-│       └── workflow_pt.mmd    # Diagrama Mermaid (PT)
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
-
-### Tecnologias
-
-| Tecnologia | Uso |
-|---|---|
-| Python | Linguagem principal |
-| pandas / numpy | Geracao e manipulacao de dados |
-| matplotlib | Graficos estaticos |
-| Plotly | Dashboard interativo |
-| ReportLab | Geracao de PDF |
-| SQLite | Armazenamento de dados |
-| schedule | Agendamento de tarefas |
-| Flask | API web (stub) |
-
-### Autor
-
-**Gabriel Demetrios Lafis**
-- GitHub: [@galafis](https://github.com/galafis)
-- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
-
-### Licenca
-
-MIT — veja [LICENSE](LICENSE).
-
----
+<a id="english"></a>
 
 ## English
 
-### About
+Turn sales records into validated summaries, static charts, an interactive HTML dashboard and a PDF report using pandas, Matplotlib, Plotly and ReportLab.
 
-Automated PDF report generator with sales analytics, matplotlib charts, and email delivery.
+### What works
 
-The main module (`src/report_generator.py`, ~440 lines) does the following:
+- Daily metrics aggregate all rows for each day; monthly groups retain the year.
+- Partial-year data and zero-order examples are supported without dividing by zero.
+- Charts, HTML and PDF rendering functions are available independently from optional scheduling and email methods.
 
-- Generates synthetic sales and customer data (seasonal simulation)
-- Stores data in SQLite database
-- Creates static charts with matplotlib (daily trend, by category, by region, monthly)
-- Creates interactive dashboard with Plotly
-- Generates complete PDF reports with ReportLab (KPI tables, embedded charts)
-- Sends reports via email (SMTP)
-- Automatic scheduling with the `schedule` library (weekly and every 30 days)
+### Reproducible walkthrough
 
-Also includes a Flask web API stub (`src/app.py`) with basic endpoints.
+Requirements: Python 3.12 / Python 3.12.
 
-### How to Run
+Run from the repository root. The validation environment installs the components exercised by the tests and documented example; optional integrations may need their separate dependencies.
 
-```bash
-# Clone the repository
-git clone https://github.com/galafis/Automated-Report-Generator.git
-cd Automated-Report-Generator
-
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Generate report
-python src/report_generator.py
+```sh
+python -m venv .venv
+# Activate .venv for your shell / Ative .venv no seu terminal
+python -m pip install -r requirements-validation.txt
+python -m pytest -q
+python -m examples.review_demo
 ```
 
-Generated files go to the `reports/` directory:
-- `sales_report_YYYYMMDD.pdf` — PDF report
-- `sales_analysis_charts.png` — matplotlib charts
-- `interactive_dashboard.html` — Plotly dashboard
+**Input contract / Contrato de entrada:** CSV columns / colunas CSV: `date,sales_amount,orders,customers,product_category,region`.
 
-### Tests
+**Expected behavior / Comportamento esperado:** Sample sales total 600 across 12 orders; order average 50; daily average 200; January 2024 and January 2025 remain separate. / Vendas de 600 em 12 pedidos; média por pedido 50; média diária 200; janeiro de 2024 e de 2025 separados.
 
-```bash
-pytest tests/ -v
+### Architecture / Arquitetura
+
+```mermaid
+flowchart LR
+    A["Synthetic sales CSV / CSV de vendas fictícias"]
+    B["Validated aggregates / Agregações validadas"]
+    C["Charts and dashboard / Gráficos e painel"]
+    D["PDF report / Relatório PDF"]
+    A --> B --> C --> D
 ```
 
-### Project Structure
+The main path can be followed in [src/report_generator.py](src/report_generator.py). Examples call the actual implementation and include assertions; they are not pseudocode.
 
+### Scope and assumptions
+
+The example uses synthetic sales and sends no email. Financial values use ordinary numeric analytics and are not an accounting ledger. Existing email and scheduler methods require explicit configuration and are not exercised by the walkthrough.
+
+### Changes verified in this review
+
+Fixed daily aggregation, year-aware month grouping, partial-period chart labels and zero-order handling; removed default config-file writes and made synthetic sample generation reproducible.
+
+<a id="portugues"></a>
+
+## Português
+
+Transforme registros de vendas em resumos validados, gráficos estáticos, painel HTML interativo e relatório PDF usando pandas, Matplotlib, Plotly e ReportLab.
+
+### Funcionalidades disponíveis
+
+- Métricas diárias agregam todas as linhas do dia; agrupamentos mensais preservam o ano.
+- Dados de períodos parciais e exemplos sem pedidos são tratados sem divisão por zero.
+- Funções de gráficos, HTML e PDF podem ser usadas independentemente dos métodos opcionais de agendamento e email.
+
+### Execução reproduzível
+
+Use os comandos da seção acima a partir da raiz do repositório. Requisitos: Python 3.12 / Python 3.12. O ambiente de validação instala os componentes exercitados pelos testes e pelo exemplo documentado; integrações opcionais podem exigir dependências próprias.
+
+O fluxo principal está em [src/report_generator.py](src/report_generator.py). Os exemplos usam a implementação real e verificam resultados com asserções; não são pseudocódigo. O diagrama apresenta os mesmos passos nos dois idiomas.
+
+### Escopo e premissas
+
+O exemplo usa vendas fictícias e não envia email. Valores usam análise numérica comum e não constituem livro contábil. Os métodos de email e agendamento exigem configuração explícita e não são executados no roteiro.
+
+### Melhorias verificadas nesta revisão
+
+Corrigidos agregação diária, agrupamento mensal por ano, rótulos de períodos parciais e ausência de pedidos; removida gravação automática de configuração padrão e tornados reproduzíveis os dados fictícios.
+
+## Render the complete example / Gerar o exemplo completo
+
+```sh
+python -m examples.render_report --output-dir reports/example
 ```
-Automated-Report-Generator/
-├── src/
-│   ├── __init__.py
-│   ├── report_generator.py   # Main module (~440 lines)
-│   └── app.py                # Flask API stub
-├── tests/
-│   └── test_report_generator.py
-├── docs/
-│   └── assets/
-│       ├── workflow_en.mmd    # Mermaid diagram (EN)
-│       └── workflow_pt.mmd    # Mermaid diagram (PT)
-├── requirements.txt
-├── LICENSE
-└── README.md
-```
 
-### Tech Stack
+EN: This command reads `examples/sales.csv` and produces a bilingual PDF, chart image and HTML dashboard locally. It does not invoke email or scheduling.
 
-| Technology | Usage |
-|---|---|
-| Python | Primary language |
-| pandas / numpy | Data generation and manipulation |
-| matplotlib | Static charts |
-| Plotly | Interactive dashboard |
-| ReportLab | PDF generation |
-| SQLite | Data storage |
-| schedule | Task scheduling |
-| Flask | Web API (stub) |
+PT: O comando lê `examples/sales.csv` e produz localmente PDF bilíngue, gráfico e painel HTML. Não executa email nem agendamento.
 
-### Author
+## Repository guide / Guia do repositório
 
-**Gabriel Demetrios Lafis**
-- GitHub: [@galafis](https://github.com/galafis)
-- LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
+| Location / Local                                            | Purpose / Finalidade                                                   |
+| ----------------------------------------------------------- | ---------------------------------------------------------------------- |
+| [Implementation / Implementação](src/report_generator.py)   | Main domain behavior / Comportamento principal do domínio              |
+| [Example / Exemplo](examples/review_demo.py)                | Executable scenario / Cenário executável                               |
+| [Tests / Testes](tests/)                                    | Normal behavior and failure cases / Fluxos válidos e casos de falha    |
+| [Validation notes / Notas de validação](docs/VALIDATION.md) | Corrections, evidence and boundaries / Correções, evidências e limites |
+| [Workflow / Automação](.github/workflows/ci.yml)            | Automated checks / Verificações automatizadas                          |
 
-### License
+- [Executed example result / Resultado executado do exemplo](examples/expected.json)
 
-MIT — see [LICENSE](LICENSE).
+## Development / Desenvolvimento
+
+EN: When changing behavior, update the contract, the worked example and a regression test together. Keep synthetic fixtures separate from real data. A passing test suite demonstrates the listed software behaviors; it does not certify a deployment or domain outcome.
+
+PT: Ao alterar comportamento, atualize em conjunto o contrato, o exemplo e um teste de regressão. Separe amostras fictícias de dados reais. Testes aprovados demonstram os comportamentos de software listados; não certificam implantação nem resultado no domínio.
+
+Author / Autor: [Gabriel Demetrios Lafis](https://github.com/galafis) · [Institutional contact / Contato institucional](mailto:gabrieldemetrioslafis@usp.br)
+
+License / Licença: [repository license](LICENSE).

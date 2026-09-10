@@ -1,0 +1,9 @@
+# Tested Python 3.12 environment / Ambiente Python 3.12 validado
+pytest==9.1.1
+pandas==3.0.1
+numpy==2.3.5
+matplotlib==3.11.1
+plotly==7.0.0
+reportlab==4.4.9
+schedule==1.2.2
+ruff==0.16.7

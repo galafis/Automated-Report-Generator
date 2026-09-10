@@ -31,3 +31,8 @@ reports/
 
 # Config files
 config.json
+.ruff_cache/
+.mypy_cache/
+.venv/
+.coverage
+sample_data.db

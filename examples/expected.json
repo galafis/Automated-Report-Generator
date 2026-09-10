@@ -1,0 +1,8 @@
+{
+  "synthetic": true,
+  "total_sales": 600.0,
+  "total_orders": 12,
+  "average_order_value": 50.0,
+  "daily_average": 200.0,
+  "months": ["2024-01", "2025-01"]
+}
